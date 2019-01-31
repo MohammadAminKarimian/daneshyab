@@ -1,17 +1,19 @@
 package com.example.daneshyab;
 
 public class HandNote {
-    private int id, price;
-    private String name, author, field, university, date;
+    private int id;
+    private int imageID ;
+    private String name, author, field, university, date, price;
 
-    public HandNote(int id, int price, String name, String author, String field, String university, String date) {
+    public HandNote(int id, int imageID, String name, String author, String field, String university, String date, String price) {
         this.id = id;
-        this.price = price;
+        this.imageID = imageID;
         this.name = name;
         this.author = author;
         this.field = field;
         this.university = university;
         this.date = date;
+        this.price = price;
     }
 
     public int getId() {
@@ -22,12 +24,12 @@ public class HandNote {
         this.id = id;
     }
 
-    public int getPrice() {
-        return price;
+    public int getImageID() {
+        return imageID;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setImageID(int imageID) {
+        this.imageID = imageID;
     }
 
     public String getName() {
@@ -68,5 +70,13 @@ public class HandNote {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }
