@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class SearchableActivity extends ListActivity {
 
     ArrayList<String> myData = new ArrayList<>();
-    TextView textView = findViewById(R.id.notify_field);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

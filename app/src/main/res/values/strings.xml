@@ -10,7 +10,7 @@
     <string name="book_name">ریاضی 2</string>
     <string name="author">رضا خالدی</string>
     <string name="university">چمران</string>
-    <string name="field">ریاضی</string>
     <string name="price">3000$</string>
     <string name="publish_data">93/6/24</string>
+    <string name="string_price_placeholder">1000</string>
 </resources>

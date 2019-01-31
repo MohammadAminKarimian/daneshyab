@@ -10,10 +10,12 @@ import android.view.ViewGroup;
 
 public class FinderFragment extends Fragment {
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_finder, container, false);
+        return inflater.inflate(R.layout.finder_handnote_card_listview, container, false);
     }
 }
