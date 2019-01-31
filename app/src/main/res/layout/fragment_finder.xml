@@ -5,11 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".FinderFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_finder_fragment"
-        android:textSize="65sp"/>
+        android:scrollbars="vertical" />
 
 </FrameLayout>
