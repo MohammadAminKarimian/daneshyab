@@ -5,7 +5,7 @@ public class HandNote {
     private int imageID ;
     private String name, author, field, university, date, price;
 
-    public HandNote(int id, int imageID, String name, String author, String field, String university, String date, String price) {
+    HandNote(int id, int imageID, String name, String author, String field, String university, String date, String price) {
         this.id = id;
         this.imageID = imageID;
         this.name = name;
@@ -24,7 +24,7 @@ public class HandNote {
         this.id = id;
     }
 
-    public int getImageID() {
+    int getImageID() {
         return imageID;
     }
 
@@ -32,7 +32,7 @@ public class HandNote {
         this.imageID = imageID;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
@@ -40,7 +40,7 @@ public class HandNote {
         this.name = name;
     }
 
-    public String getAuthor() {
+    String getAuthor() {
         return author;
     }
 
@@ -48,7 +48,7 @@ public class HandNote {
         this.author = author;
     }
 
-    public String getField() {
+    String getField() {
         return field;
     }
 
@@ -56,7 +56,7 @@ public class HandNote {
         this.field = field;
     }
 
-    public String getUniversity() {
+    String getUniversity() {
         return university;
     }
 
@@ -64,7 +64,7 @@ public class HandNote {
         this.university = university;
     }
 
-    public String getDate() {
+    String getDate() {
         return date;
     }
 
@@ -72,7 +72,7 @@ public class HandNote {
         this.date = date;
     }
 
-    public String getPrice() {
+    String getPrice() {
         return price;
     }
 

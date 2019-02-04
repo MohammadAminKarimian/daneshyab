@@ -50,7 +50,10 @@
         android:textSize="24sp"/>
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:id="@+id/image_view_overview"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:src="@color/colorPrimary"
+        android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>

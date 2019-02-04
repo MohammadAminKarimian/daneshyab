@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_margin="16dp"
-            app:iconifiedByDefault="false"
+            app:iconifiedByDefault="true"
             app:layout_constraintTop_toTopOf="parent"
             >
         </android.support.v7.widget.SearchView>
