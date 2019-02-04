@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class FinderFragment extends Fragment {
 
 
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -23,13 +24,13 @@ public class FinderFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_finder, container, false);
 
         ArrayList<HandNote> handNotes = new ArrayList<>();
-        handNotes.add(new HandNote(879, R.drawable.temp1, "ریاضی 2", "حمید خواجوی", "کامپیوتر", "چمران", "96/6/12", "6000"));
-        handNotes.add(new HandNote(879, R.drawable.temp2, "ریاضی 2", "حمید خواجوی", "کامپیوتر", "چمران", "96/6/12", "6000"));
-        handNotes.add(new HandNote(879, R.drawable.temp3, "ریاضی 2", "حمید خواجوی", "کامپیوتر", "چمران", "96/6/12", "6000"));
-        handNotes.add(new HandNote(879, R.drawable.temp4, "ریاضی 2", "حمید خواجوی", "کامپیوتر", "چمران", "96/6/12", "6000"));
-        handNotes.add(new HandNote(879, R.drawable.temp1, "ریاضی 2", "حمید خواجوی", "کامپیوتر", "چمران", "96/6/12", "6000"));
-        handNotes.add(new HandNote(879, R.drawable.temp2, "ریاضی 2", "حمید خواجوی", "کامپیوتر", "چمران", "96/6/12", "6000"));
-        handNotes.add(new HandNote(879, R.drawable.temp3, "ریاضی 2", "حمید خواجوی", "کامپیوتر", "چمران", "96/6/12", "6000"));
+        handNotes.add(new HandNote(879,R.drawable.temp1,"ریاضی 2","حمید خواجوی","کامپیوتر","چمران","96/6/12","6000"));
+        handNotes.add(new HandNote(879,R.drawable.temp2,"ریاضی 2","حمید خواجوی","کامپیوتر","چمران","96/6/12","6000"));
+        handNotes.add(new HandNote(879,R.drawable.temp3,"ریاضی 2","حمید خواجوی","کامپیوتر","چمران","96/6/12","6000"));
+        handNotes.add(new HandNote(879,R.drawable.temp4,"ریاضی 2","حمید خواجوی","کامپیوتر","چمران","96/6/12","6000"));
+        handNotes.add(new HandNote(879,R.drawable.temp1,"ریاضی 2","حمید خواجوی","کامپیوتر","چمران","96/6/12","6000"));
+        handNotes.add(new HandNote(879,R.drawable.temp2,"ریاضی 2","حمید خواجوی","کامپیوتر","چمران","96/6/12","6000"));
+        handNotes.add(new HandNote(879,R.drawable.temp3,"ریاضی 2","حمید خواجوی","کامپیوتر","چمران","96/6/12","6000"));
 
         RecyclerView mRecyclerView = view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
