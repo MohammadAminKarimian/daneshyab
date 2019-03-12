@@ -1,16 +1,2 @@
-<resources>
-    <string name="app_name">daneshyab</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="search_hint">search something</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="hello_home_fragment">Fragment @Home</string>
-    <string name="hello_finder_fragment">Fragment @Finder</string>
-    <string name="hello_account_fragment">Fragment @Account</string>
-    <string name="book_name">ریاضی 2</string>
-    <string name="author">رضا خالدی</string>
-    <string name="university">چمران</string>
-    <string name="price">3000$</string>
-    <string name="publish_data">93/6/24</string>
-    <string name="string_price_placeholder">1000</string>
-</resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources></resources>
