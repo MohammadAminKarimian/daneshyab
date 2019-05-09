@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 
 import com.example.daneshyab.R;
 
-public class fields extends Fragment {
+public class FragmentFields extends Fragment {
 
-    public fields() {
+    public FragmentFields() {
         // Required empty public constructor
     }
 

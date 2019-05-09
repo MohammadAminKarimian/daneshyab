@@ -1,109 +1,127 @@
 package com.example.daneshyab.CategoryPage;
 
-import android.content.Context;
-import android.net.Uri;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.daneshyab.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link CategoryFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link CategoryFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class CategoryFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
+    private ViewPager view_pager;
+    private SectionsPagerAdapter viewPagerAdapter;
+    private TabLayout tab_layout;
 
     public CategoryFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CategoryFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CategoryFragment newInstance(String param1, String param2) {
-        CategoryFragment fragment = new CategoryFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_category, container, false);
+        View view = inflater.inflate(R.layout.fragment_category, container, false);
+        initComponent(view);
+        initToolbar(view);
+
+        return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+    private void initToolbar(View view) {
+        AppCompatActivity parent = (AppCompatActivity)getActivity();
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.category_toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_round_more_vert_24px);
+        parent.setSupportActionBar(toolbar);
+        parent.getSupportActionBar().setTitle(R.string.app_name_second);
+        parent.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        parent.getSupportActionBar().setElevation(4);
+    }
+
+    private  void initComponent(View view) {
+        view_pager = view.findViewById(R.id.view_pager);
+        tab_layout = view.findViewById(R.id.tab_layout);
+        setupViewPager(view_pager);
+
+        tab_layout.setupWithViewPager(view_pager);
+
+        tab_layout.getTabAt(0).setIcon(R.drawable.ic_dashboard_black_24dp);
+        tab_layout.getTabAt(1).setIcon(R.drawable.ic_notifications_black_24dp);
+        tab_layout.getTabAt(2).setIcon(R.drawable.ic_round_search_24px);
+
+        // set icon color pre-selected
+        tab_layout.getTabAt(0).getIcon().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
+        tab_layout.getTabAt(1).getIcon().setColorFilter(getResources().getColor(R.color.grey_20), PorterDuff.Mode.SRC_IN);
+        tab_layout.getTabAt(2).getIcon().setColorFilter(getResources().getColor(R.color.grey_20), PorterDuff.Mode.SRC_IN);
+
+        tab_layout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                tab.getIcon().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                tab.getIcon().setColorFilter(getResources().getColor(R.color.grey_20), PorterDuff.Mode.SRC_IN);
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        AppCompatActivity parent = (AppCompatActivity)getActivity();
+        viewPagerAdapter = new SectionsPagerAdapter(parent.getSupportFragmentManager());
+        viewPagerAdapter.addFragment(new FragmentFields(), getString(R.string.tab_name_fields));    // index 2
+        viewPagerAdapter.addFragment(new FragmentSchools(), getString(R.string.tab_name_schools));   // index 1
+        viewPagerAdapter.addFragment(new FragmentLessons(), getString(R.string.tab_name_lessons));    // index 0
+        viewPager.setAdapter(viewPagerAdapter);
+    }
+
+    private class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public SectionsPagerAdapter(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
         }
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }

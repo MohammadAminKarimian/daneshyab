@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="title_home">خانه</string>
+    <string name="title_category">دسته بندی</string>
+    <string name="title_search">جستجو</string>
+    <string name="title_account">حساب</string>
+    <string name="tab_name_fields">رشته ها</string>
+    <string name="tab_name_schools">دانشگاه ها</string>
+    <string name="tab_name_lessons">درس ها</string>
+    <string name="app_name_second">آنوت</string>
+    <string name="in_reading">در حال مطالعه</string>
+    <string name="last_handnotes">آخرین جزوه ها</string>
+    <string name="public_lessons">دروس عمومی</string>
+    <string name="app_name">آنوت</string>
+</resources>
